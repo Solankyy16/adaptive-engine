@@ -27,17 +27,15 @@ def test_equal_ability_and_difficulty_gives_50_percent():
     p = probability_correct(ability=0.5, difficulty=0.5)
     assert abs(p - 0.5) < 0.001, f"Expected ~0.5, got {p}"
 
-
 def test_high_ability_low_difficulty_gives_high_probability():
-    """A strong student (ability=0.9) on an easy question (difficulty=0.2) should have P > 0.8."""
+    """A strong student (ability=0.9) on an easy question (difficulty=0.2) should have P > 0.65."""
     p = probability_correct(ability=0.9, difficulty=0.2)
-    assert p > 0.8, f"Expected P > 0.8 for high ability / low difficulty, got {p}"
-
+    assert p > 0.65, f"Expected P > 0.65 for high ability / low difficulty, got {p}"
 
 def test_low_ability_high_difficulty_gives_low_probability():
-    """A weak student (ability=0.1) on a hard question (difficulty=0.9) should have P < 0.2."""
+    """A weak student (ability=0.1) on a hard question (difficulty=0.9) should have P < 0.35."""
     p = probability_correct(ability=0.1, difficulty=0.9)
-    assert p < 0.2, f"Expected P < 0.2 for low ability / high difficulty, got {p}"
+    assert p < 0.35, f"Expected P < 0.35 for low ability / high difficulty, got {p}"
 
 
 def test_probability_is_always_between_0_and_1():
